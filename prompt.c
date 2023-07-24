@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * signal_handler - Handles Ctr + C signal
+ * signal_handler - Handles Ctr C signal
  * @signal: Signal parameter
  * Return: void
  */
