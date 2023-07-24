@@ -6,7 +6,7 @@
  * Return: void
  */
 
-void signal_handler(int signal);
+void signal_handler(int signal)
 {
 	if (signal == SIGINT)
 	{
@@ -28,6 +28,7 @@ char *_prompt(char *prompt)
 	size_t len = 0;
 
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
+	gl_result = getline(&glptr, &len, stdin);
 
 	if (gl_result == -1)
 	{

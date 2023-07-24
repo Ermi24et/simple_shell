@@ -11,7 +11,6 @@
 
 /* declaring an external environment variables */
 extern char **environ;
-int MAX_PATH_LEN = 1024;
 
 /* function prototypes for our shell */
 void print_environment(void);
