@@ -36,6 +36,7 @@ char **comm_tok(char *str, char *delimiters)
 
 	if (!tokens)
 		return (NULL);
+
 	str = strtok(str, delimiters);
 
 	while (str)
@@ -46,6 +47,7 @@ char **comm_tok(char *str, char *delimiters)
 	tokens[i] = NULL;
 
 	return (tokens);
+
 }
 
 /**
@@ -63,6 +65,7 @@ int count_str(char *str, char *delimiters)
 
 	if (str == NULL || delimiters == NULL)
 		return (0);
+
 	str_copy = malloc(_strlen(str) + 1);
 
 	if (str_copy == NULL)

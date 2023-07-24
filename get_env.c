@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *_getenv - retrieves the value of an environment variable
- *@name: name of the variable
- *Return: returns a pointer, otherwise NULL
+ * _getenv - retrieves the value of an environment variable
+ * @name: name of the variable
+ * Return: returns a pointer, otherwise NULL
  */
 
 char *_getenv(const char *name)
@@ -20,12 +20,13 @@ char *_getenv(const char *name)
 			return (env_var + name_len + 1);
 		}
 	}
+
 	return (NULL);
 }
 
 /**
- *print_environment - prints environment variables to the terminal
- *Return: void
+ * print_environment - prints environment variables to the terminal
+ * Return: void
  */
 
 void print_environment(void)

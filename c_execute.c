@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *c_execute - it creates process and executes
- *@comm: a command to execute
- *Return: void
+ * c_execute - it creates process and executes
+ * @comm: a command to execute
+ * Return: void
  */
 
 void c_execute(char **comm)

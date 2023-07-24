@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *find_path - it finds a path and concatenate the command to it.
- *@command: a command to find
- *Return: full path
+ * find_path - it finds a path and concatenate the command to it.
+ * @command: a command to find
+ * Return: full path
  */
 
 char *find_path(char *command)

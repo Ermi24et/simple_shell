@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- *handle_error - handles error
- *@pro_name: the program name
- *@com: command entered
- *@counter: counts number of execution
- *Return: void
+ * handle_error - handles error
+ * @pro_name: the program name
+ * @com: command entered
+ * @counter: counts number of execution
+ * Return: void
  */
 
 void handle_error(char *pro_name, char *com, int counter)
@@ -26,9 +26,9 @@ void handle_error(char *pro_name, char *com, int counter)
 }
 
 /**
- *int_to_str - converts integer to string
- *@val: value to convert
- *Return: string
+ * int_to_str - converts integer to string
+ * @val: value to convert
+ * Return: string
  */
 
 char *int_to_str(int val)
@@ -54,10 +54,10 @@ char *int_to_str(int val)
 }
 
 /**
- *_strcpy - copy the string pointed to by src to dest
- *@dest: char to check
- *@src: char to check
- *Return: the value of the pointer to dest
+ * _strcpy - copy the string pointed to by src to dest
+ * @dest: char to check
+ * @src: char to check
+ * Return: the value of the pointer to dest
  */
 
 char *_strcpy(char *dest, char *src)
