@@ -1,4 +1,6 @@
+#ifndef SHELL_H
 #define SHELL_H
+
 /* standard headers for the files */
 #include <unistd.h>
 #include <string.h>

@@ -102,7 +102,7 @@ int cmd_ok(char **tok_str, int count, char **argv)
 		path = find_path(tok_str[0]);
 		if (path != NULL)
 		{
-			tok_str[0] = _strdup(path);;
+			tok_str[0] = _strdup(path);
 			free(path);
 		}
 		else
