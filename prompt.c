@@ -16,11 +16,31 @@ void signal_handler(int signal)
 }
 
 /**
+ * non_interactive - it reads a file
+ * Return: created line
+ */
+
+char *non_interactive()
+{
+	char *glptr = NULL;
+	ssize_t gl_result;
+	size_t len = 0;
+
+	gl_result = getline(&glptr, &len, stdin);
+
+	if (gl_result == -1)
+	{
+		free(glptr);
+		exit(EXIT_FAILURE);
+	}
+	return (glptr);
+}
+
+/**
  * _prompt - it reads and prompts user
  * @prompt: accepts sign
  * Return: created line
  */
-
 char *_prompt(char *prompt)
 {
 	char *glptr = NULL;
@@ -56,6 +76,8 @@ int main(int argc __attribute__((unused)), char **argv)
 		signal(SIGINT, signal_handler);
 		if (isatty(STDIN_FILENO) == 1)
 			glptr = _prompt(prompt);
+		else
+			glptr = non_interactive();
 		tok_str = comm_tok(glptr, " \n\r\t");
 		if (tok_str != NULL && tok_str[0] != NULL)
 		{

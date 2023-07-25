@@ -23,6 +23,7 @@ void handle_error(char *pro_name, char *com, int counter);
 int count_str(char *str, char *delimiters);
 void signal_handler(int signal);
 char *_prompt(char *prompt);
+char *non_interactive();
 
 /* function prototypes for utility functions */
 char *int_to_str(int val);
