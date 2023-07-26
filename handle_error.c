@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * hadle_error - handles error
+ * handle_error - handles error
  * @command: command entered by the user
  * Return: void
  */

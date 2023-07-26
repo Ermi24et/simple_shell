@@ -13,7 +13,7 @@ void c_execute(char *command, char **args)
 	char full_path[MAX_PATH_LEN];
 	char *path_env = _getenv("PATH");
 	char *dir;
-	int dir_len, total_len, comd_len;
+	int dir_len, total_len, cmd_len;
 
 	if (strcmp(command, "/bin/ls") == 0)
 	{
