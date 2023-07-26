@@ -1,6 +1,21 @@
 #include "shell.h"
 
 /**
+ * signal_handler - controls ctrl + c
+ * @signal: signal parameter
+ * Return: void
+ */
+
+void signal_handler(int signal)
+{
+	if (signal == SIGINT)
+	{
+		write(STDERR_FILENO, "\n$ ", 4);
+		fflush(stdout);
+	}
+}
+
+/**
  * main - it reads input from the user, executes commands and exits
  *
  * Return: Success(0)
@@ -24,12 +39,11 @@ int main(void)
 		if (gl_result == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
-			exit(EXIT_FAILURE);
+			break;
 		}
 		glptr[_strlen(glptr) - 1] = '\0';
 		if (_strcmp(glptr, "exit") == 0)
 		{
-			exit(EXIT_SUCCESS);
 			break;
 		}
 		else if (_strcmp(glptr, "env") == 0)
@@ -37,6 +51,7 @@ int main(void)
 			print_environment();
 			continue;
 		}
+		signal(SIGINT, signal_handler);
 		c_fork(glptr);
 	}
 	free(glptr);
