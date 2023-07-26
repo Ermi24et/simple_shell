@@ -14,5 +14,5 @@ void handle_error(char *command)
 	write(STDERR_FILENO, command, _strlen(command));
 	write(STDERR_FILENO, error_msg, _strlen(error_msg));
 	write(STDERR_FILENO, "\n", 1);
-	exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 }

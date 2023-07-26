@@ -21,7 +21,7 @@ void handling_args(char *line)
 	if (ac == 0)
 	{
 		free(args);
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 	args = realloc(args, (ac + 1) * sizeof(char *));
 	args[ac] = NULL;
