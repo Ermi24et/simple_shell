@@ -16,21 +16,21 @@ int main(void)
 
 	while (check_term)
 	{
-		{
-			check_term = isatty(STDIN_FILENO);
-			if (check_term == 1)
-				write(STDOUT_FILENO, prompt, _strlen(prompt));
-		}
+
+		check_term = isatty(STDIN_FILENO);
+		if (check_term == 1)
+			write(STDOUT_FILENO, prompt, _strlen(prompt));
 		gl_result = getline(&glptr, &len, stdin);
 		if (gl_result == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
-			break;
+			exit(EXIT_FAILURE);
 		}
 		glptr[_strlen(glptr) - 1] = '\0';
 		if (_strcmp(glptr, "exit") == 0)
 		{
 			exit(EXIT_SUCCESS);
+			break;
 		}
 		else if (_strcmp(glptr, "env") == 0)
 		{
