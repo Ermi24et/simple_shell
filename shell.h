@@ -28,5 +28,6 @@ char *_getenv(const char *name);
 void print_environment(void);
 void c_fork(char *comm);
 void handle_error(char *command);
+void signal_handler(int signal);
 
 #endif

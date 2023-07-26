@@ -1,6 +1,21 @@
 #include "shell.h"
 
 /**
+ * signal_handler - controls ctrl + c
+ * @signal: signal parameter
+ * Return: void
+ */
+
+void signal_handler(int signal)
+{
+	if (signal == SIGINT)
+	{
+		write(STDERR_FILENO, "\n$ ", 4);
+		fflush(stdout);
+	}
+}
+
+/**
  * main - it reads input from the user, executes commands and exits
  *
  * Return: Success(0)
@@ -16,11 +31,10 @@ int main(void)
 
 	while (check_term)
 	{
-		{
-			check_term = isatty(STDIN_FILENO);
-			if (check_term == 1)
-				write(STDOUT_FILENO, prompt, _strlen(prompt));
-		}
+
+		check_term = isatty(STDIN_FILENO);
+		if (check_term == 1)
+			write(STDOUT_FILENO, prompt, _strlen(prompt));
 		gl_result = getline(&glptr, &len, stdin);
 		if (gl_result == -1)
 		{
@@ -37,6 +51,7 @@ int main(void)
 			print_environment();
 			continue;
 		}
+		signal(SIGINT, signal_handler);
 		c_fork(glptr);
 	}
 	free(glptr);
