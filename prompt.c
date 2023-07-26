@@ -30,7 +30,7 @@ int main(void)
 		glptr[_strlen(glptr) - 1] = '\0';
 		if (_strcmp(glptr, "exit") == 0)
 		{
-			break;
+			exit(EXIT_SUCCESS);
 		}
 		else if (_strcmp(glptr, "env") == 0)
 		{
