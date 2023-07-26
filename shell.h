@@ -22,12 +22,13 @@ int _strncmp(const char *str1, const char *str2, int n);
 #define MAX_PATH_LEN 4096
 
 /* function prototypes for our shell */
-void c_execute(char *command, char **args);
-void handling_args(char *line);
+int c_execute(char *command, char **args, char *argv, int count);
+int handling_args(char *line, char *argv, int count);
 char *_getenv(const char *name);
 void print_environment(void);
-void c_fork(char *comm);
-void handle_error(char *command);
+int c_fork(char *comm, char *argv, int count);
+void handle_error(char *command, char *argv, int count);
 void signal_handler(int signal);
+char *int_to_str(int val);
 
 #endif

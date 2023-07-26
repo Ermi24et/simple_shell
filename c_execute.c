@@ -7,13 +7,13 @@
  * Return: void
  */
 
-void c_execute(char *command, char **args)
+int c_execute(char *command, char **args, char *argv, int count)
 {
 	char path[MAX_PATH_LEN];
 	char full_path[MAX_PATH_LEN];
 	char *path_env = _getenv("PATH");
 	char *dir;
-	int dir_len, total_len, cmd_len;
+	int dir_len, total_len, cmd_len, exit_code = 0;
 
 	if (strcmp(command, "/bin/ls") == 0)
 	{
@@ -21,7 +21,8 @@ void c_execute(char *command, char **args)
 	}
 	if (path_env == NULL)
 	{
-		handle_error(command);
+		handle_error(command, argv, count);
+		exit_code = 127;
 	}
 
 	_strncpy(path, path_env, MAX_PATH_LEN - 1);
@@ -29,6 +30,7 @@ void c_execute(char *command, char **args)
 	dir = strtok(path, ":");
 	while (dir != NULL)
 	{
+		exit_code = 0;
 		dir_len = _strlen(dir);
 		cmd_len = _strlen(command);
 		total_len = dir_len + cmd_len + 2;
@@ -43,5 +45,7 @@ void c_execute(char *command, char **args)
 		}
 		dir = strtok(NULL, ":");
 	}
-	handle_error(command);
+	handle_error(command, argv, count);
+
+	return (exit_code);
 }

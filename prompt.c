@@ -21,13 +21,13 @@ void signal_handler(int signal)
  * Return: Success(0)
  */
 
-int main(void)
+int main(int __attribute__((unused)) argc, char **argv)
 {
 	char *prompt = "$ ";
 	char *glptr = NULL;
 	size_t len = 0;
 	ssize_t gl_result;
-	int check_term = 1;
+	int check_term = 1, exit_status = 0, count = 1;
 
 	while (check_term)
 	{
@@ -38,6 +38,7 @@ int main(void)
 		gl_result = getline(&glptr, &len, stdin);
 		if (gl_result == -1)
 		{
+			exit_status = 127;
 			write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
@@ -52,8 +53,9 @@ int main(void)
 			continue;
 		}
 		signal(SIGINT, signal_handler);
-		c_fork(glptr);
+		exit_status = c_fork(glptr, argv[0], count);
+		count++;
 	}
 	free(glptr);
-	return (0);
+	return (exit_status);
 }

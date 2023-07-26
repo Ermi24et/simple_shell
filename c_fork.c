@@ -6,22 +6,32 @@
  * Return: void
  */
 
-void c_fork(char *comm)
+int c_fork(char *comm, char *argv, int count)
 {
 	pid_t c_pid;
+	int status = 0;
 
 	c_pid = fork();
 	if (c_pid == -1)
 	{
 		perror("Error");
-		exit(EXIT_FAILURE);
+		return (0);
 	}
-	else if (c_pid == 0)
+	if (c_pid == 0)
 	{
-		handling_args(comm);
+		handling_args(comm, argv, count);
 	}
 	else
 	{
-		wait(NULL);
+		wait(&status);
+		if (WIFEXITED(status))
+		{
+			status = WEXITSTATUS(status);
+
+			if (isatty(STDIN_FILENO) == 1)
+				return (status);
+		}
 	}
+
+	return (status);
 }
