@@ -3,7 +3,9 @@
 /**
  * handling_args - handles the arguments entered by the user
  * @line: the input to parse
- *Return: void
+ * @argv: name of the program
+ * @count: number of executions
+ * Return: void
  */
 
 int handling_args(char *line, char *argv, int count)

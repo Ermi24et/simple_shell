@@ -4,6 +4,8 @@
  * c_execute - executes a given command
  * @command: command to be executed
  * @args: arguments to be executed
+ * @argv: name of the program
+ * @count: number of executions
  * Return: void
  */
 

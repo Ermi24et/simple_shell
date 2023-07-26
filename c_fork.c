@@ -3,6 +3,8 @@
 /**
  * c_fork - creates a proccess and call arguments
  * @comm: a command user entered
+ * @argv: name of the program
+ * @count: number of executions
  * Return: void
  */
 

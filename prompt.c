@@ -17,7 +17,8 @@ void signal_handler(int signal)
 
 /**
  * main - it reads input from the user, executes commands and exits
- *
+ * @argc: number of arguments
+ * @argv: arguments
  * Return: Success(0)
  */
 

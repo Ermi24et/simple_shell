@@ -3,6 +3,8 @@
 /**
  * handle_error - handles error
  * @command: command entered by the user
+ * @argv: name of the program
+ * @count: number of executions
  * Return: void
  */
 
